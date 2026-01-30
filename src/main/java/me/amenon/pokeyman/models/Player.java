@@ -1,10 +1,14 @@
 package me.amenon.pokeyman.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import me.amenon.pokeyman.messages.Messages;
 import me.amenon.pokeyman.enums.Type;
 
 import java.util.*;
 
+@Getter
+@Setter
 public class Player implements Iterator<Pokeyman> {
 
     private final Queue<Pokeyman> pokeymans = new LinkedList<>();
@@ -40,10 +44,6 @@ public class Player implements Iterator<Pokeyman> {
         return pokeymans.peek();
     }
 
-    public Queue<Pokeyman> getPokeymans(){
-        return this.pokeymans;
-    }
-
     public Pokeyman generateRandomPokeyman() {
         List<Move> genericMoveset = List.of(
                 new Move("Tackle", 5),
@@ -60,26 +60,6 @@ public class Player implements Iterator<Pokeyman> {
             setHp(rng.nextInt(4) + 1);
             setMoveList(genericMoveset);
         }};
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getWins() {
-        return wins;
-    }
-
-    public int getLosses() {
-        return losses;
-    }
-
-    public Player getEnemy() {
-        return enemy;
-    }
-
-    public void setEnemy(Player enemy) {
-        this.enemy = enemy;
     }
 
     public WinStatus checkWin() {

@@ -1,10 +1,14 @@
 package me.amenon.pokeyman.models;
 
+import lombok.Getter;
+import lombok.Setter;
 import me.amenon.pokeyman.messages.Messages;
 import me.amenon.pokeyman.enums.Type;
 
 import java.util.List;
 
+@Getter
+@Setter
 public class Pokeyman implements Comparable {
     private String name;
     private Type type;
@@ -33,54 +37,6 @@ public class Pokeyman implements Comparable {
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public void setType(Type type) {
-        this.type = type;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public int getAttack() {
-        return attack;
-    }
-
-    public void setAttack(int attack) {
-        this.attack = attack;
-    }
-
-    public int getDefense() {
-        return defense;
-    }
-
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    public List<Move> getMoveList() {
-        return moveList;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setMoveList(List<Move> moveList) {
-        this.moveList = moveList;
-    }
-
     public PokeymanStatus isAlive() {
         if (this.hp <= 0) {
             return PokeymanStatus.FAINTED;
@@ -89,7 +45,7 @@ public class Pokeyman implements Comparable {
     }
 
     private int receiveDamage(Move move, Pokeyman attacker) {
-        double damageMagnitude = (((double) attacker.getAttack() / defense) * move.getDamage());
+        double damageMagnitude = (((double) attacker.getAttack() / defense) * move.damage());
         int typeComparison = this.type.compareTo(attacker.getType());
         double damageMultiplier = Math.pow(2, typeComparison);
         int totalDamage = (int) (damageMagnitude * damageMultiplier);

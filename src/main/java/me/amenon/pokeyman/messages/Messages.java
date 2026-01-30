@@ -1,5 +1,8 @@
 package me.amenon.pokeyman.messages;
 
+import lombok.Getter;
+
+@Getter
 public enum Messages {
     PLAYER_TURN("%s's turn:"),
     NO_MORE_POKEYMAN_LEFT("Uh oh! %s has no pokeyman left!!"),
@@ -18,10 +21,6 @@ public enum Messages {
 
     Messages(String message) {
         this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
     public void show(Object ...args) {

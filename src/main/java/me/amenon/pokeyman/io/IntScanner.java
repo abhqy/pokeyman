@@ -6,12 +6,10 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class IntScanner {
-    private final InputStream stream;
     private final Scanner scanner;
 
     public IntScanner(InputStream stream) {
-        this.stream = stream;
-        this.scanner = new Scanner(this.stream);
+        this.scanner = new Scanner(stream);
     }
 
     public int read(int rangeEnd) {
