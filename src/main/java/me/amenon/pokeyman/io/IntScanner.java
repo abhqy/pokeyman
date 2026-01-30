@@ -13,11 +13,17 @@ public class IntScanner {
     }
 
     public int read(int rangeEnd) {
-        int var = scanner.nextInt();
-        while (var < 0 || var > rangeEnd) {
-            Messages.INVALID_INT_ENTRY.show();
-            var = scanner.nextInt();
+        while (scanner.hasNext()) {
+            if (!scanner.hasNextInt()) {
+                scanner.next();
+            } else {
+                int var = scanner.nextInt();
+                if (var >= 0 && var <= rangeEnd) {
+                    return var;
+                }
+            }
+            Messages.INVALID_INPUT.show(0, rangeEnd);
         }
-        return var;
+        throw new IllegalStateException(Messages.ILLEGAL_STATE.getMessage());
     }
 }

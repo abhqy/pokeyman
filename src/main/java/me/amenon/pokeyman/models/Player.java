@@ -53,7 +53,7 @@ public class Player implements Iterator<Pokeyman> {
         );
 
         return new Pokeyman(this) {{
-            setName("Randochu");
+            setName("Randochu " + rng.nextInt(1000));
             setType(Type.ELECTRIC);
             setAttack(rng.nextInt(25));
             setDefense(rng.nextInt(25));

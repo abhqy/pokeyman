@@ -1,10 +1,12 @@
 package me.amenon.pokeyman.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.Set;
 
 @Getter
+@AllArgsConstructor
 public enum Type {
     NORMAL(Set.of(), Set.of("ROCK", "GHOST")),
     FIRE(Set.of("GRASS", "ICE", "BUG"), Set.of("FIRE", "WATER", "ROCK", "DRAGON")),
@@ -24,10 +26,5 @@ public enum Type {
 
     private final Set<String> strengths;
     private final Set<String> weaknesses;
-
-    Type(Set<String> strengths, Set<String> weaknesses) {
-        this.strengths = strengths;
-        this.weaknesses = weaknesses;
-    }
 
 }

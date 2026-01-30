@@ -15,7 +15,9 @@ public enum Messages {
     DAMAGE_EFFECT("%s's pokeyman %s lost some health: %d -> %d ;-;"),
     NO_EFFECT("%s's pokeyman %s lost no health: %d -> %d :P"),
     PLAYER_WINS("%s wins!! :D"),
-    SHOW_POKEYMAN("%s: [%d HP]");
+    SHOW_POKEYMAN("%s: [%d HP]"),
+    INVALID_INPUT("Invalid input, expecting numbers in inclusive range [%d, %d]: "),
+    ILLEGAL_STATE("Illegal State: No valid input found");
 
     private final String message;
 
