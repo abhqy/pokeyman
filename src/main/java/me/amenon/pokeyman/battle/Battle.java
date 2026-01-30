@@ -76,12 +76,4 @@ public class Battle {
         var winnerIndex = (iter - 1) % 2;
         Messages.PLAYER_WINS.show(players.get(winnerIndex).getName());
     }
-
-    public static void main(String[] args) {
-        Player player1 = new Player("Ash");
-        Player player2 = new Player("Giovanni");
-        Battle b = new Battle(player1, player2);
-        b.play();
-    }
-
 }
